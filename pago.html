@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pago - Tienda Virtual</title>
+    <link rel="stylesheet" href="pago.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.5.0-beta4/html2canvas.min.js"></script>
+    <script src="pago.js" defer></script>
+</head>
+
+<body>
+    <header>
+        <h1>Detalles del Pago</h1>
+    </header>
+
+    <section id="metodo-pago-info">
+        <!-- Información sobre el método de pago seleccionado -->
+    </section>
+
+    <section id="formulario-pago" style="display: none;">
+        <!-- Formulario para el método de pago -->
+    </section>
+
+    <section id="comprobante" style="display: none;">
+        <h2>Comprobante de Pago</h2>
+        <p>Gracias por tu compra. Aquí están los detalles de tu transacción:</p>
+        <div id="comprobante-detalles"></div>
+        <button id="guardar-captura" class="btn">Guardar Captura</button>
+    </section>
+
+    <a href="index.html" class="btn">Volver a Inicio</a>
+</body>
+
+</html>

@@ -1,0 +1,39 @@
+/* transition.css */
+
+/* Definición de animaciones */
+@keyframes diamond-expand-in {
+    0% {
+        clip-path: polygon(50% 50%, 50% 50%, 50% 50%, 50% 50%);
+        background-color: #ff4500;
+        /* Color de fondo inicial (exterior) */
+    }
+
+    100% {
+        clip-path: polygon(0% 50%, 50% 0%, 100% 50%, 50% 100%);
+        background-color: #ffffff;
+        /* Color de fondo final (interior) */
+    }
+}
+
+@keyframes diamond-expand-out {
+    0% {
+        clip-path: polygon(0% 50%, 50% 0%, 100% 50%, 50% 100%);
+        background-color: #ffffff;
+        /* Color de fondo final (interior) */
+    }
+
+    100% {
+        clip-path: polygon(50% 50%, 50% 50%, 50% 50%, 50% 50%);
+        background-color: #ff4500;
+        /* Color de fondo inicial (exterior) */
+    }
+}
+
+/* Clases de transición */
+.transition-in {
+    animation: diamond-expand-in 3s ease-out both;
+}
+
+.transition-out {
+    animation: diamond-expand-out 3s ease-in both;
+}
