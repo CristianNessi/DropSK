@@ -518,18 +518,48 @@ footer p {
     margin-bottom: 0.5rem;
 }
 
+#lista-carrito {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.item-carrito {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    border-bottom: 1px solid #ccc;
+    margin-bottom: 10px;
+}
+
+.nombre-producto {
+    flex: 1;
+    max-width: 150px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+.precio-producto {
+    flex-shrink: 0;
+    margin-right: 5px;
+}
+
 .carrito-contenido .btn-eliminar {
+    flex-shrink: 0;
+    border: #757575e3 solid 3px;
     background-color: #000000cc;
     color: white;
-    border: #757575e3 solid 3px;
-    padding: 5px;
-    border-radius: 5px;
+    border: none;
+    padding: 5px 10px;
     cursor: pointer;
     font-size: 0.9rem;
+    border-radius: 5px;
 }
 
 .carrito-contenido .btn-eliminar:hover {
-    background-color: #cc7a00;
+    background-color: #e74c3c;
 }
 
 
@@ -564,6 +594,8 @@ button#cerrar-carrito {
     top: 1rem;
     right: 1rem;
 }
+
+/* wps */
 
 .whatsapp-button {
     position: fixed;

@@ -15,20 +15,12 @@ let total = 0;
 // Función para abrir el carrito con animación
 carritoEnlace.addEventListener('click', (e) => {
     e.preventDefault();
-    carrito.style.display = 'block'; // Asegúrate de que el carrito esté visible
-    setTimeout(() => {
-        carrito.classList.add('mostrar'); // Activar el efecto de fade-in
-        carritoContenido.classList.add('mostrar'); // Deslizar el carrito desde la derecha
-    }, 10); // Un pequeño retraso para garantizar la transición
+    carrito.classList.add('mostrar'); // Mostrar el carrito con animación
 });
 
 // Función para cerrar el carrito con animación
 cerrarCarrito.addEventListener('click', () => {
-    carrito.classList.remove('mostrar');
-    carritoContenido.classList.remove('mostrar');
-    setTimeout(() => {
-        carrito.style.display = 'none'; // Ocultar el carrito tras la animación
-    }, 300); // Tiempo igual al de la animación
+    carrito.classList.remove('mostrar'); // Ocultar el carrito con animación
 });
 
 // Función para agregar productos al carrito
