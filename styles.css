@@ -23,11 +23,14 @@ ul {
 
 /* NAVBAR */
 nav {
-    background-color: #333;
+    position: fixed;
+    background-color: #000000e9;
     padding: 1rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    width: 100%;
+    z-index: 999;
 }
 
 nav .logo {
@@ -52,7 +55,7 @@ nav .nav-links a:hover {
 
 /* HERO */
 #hero {
-    min-height: 350px;
+    min-height: 500px;
     padding: 0;
     background: url('imagen/hero.png') no-repeat center center fixed;
     background-size: cover;
@@ -343,55 +346,94 @@ nav .nav-links a:hover {
     margin-bottom: 1rem;
 }
 
-/* FORMULARIO DE CONTACTO */
+/* FORMULARIO */
+
 .contacto {
-    padding: 3rem 0;
-    background-color: #f5f5f5;
-    text-align: center;
+    background-color: #444;
+    padding: 40px 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
-.contacto form {
-    max-width: 600px;
-    margin: 0 auto;
+.contacto h2 {
+    color: white;
+    margin-bottom: 20px;
+    font-size: 2.5rem;
 }
 
 .form-group {
-    margin-bottom: 1.5rem;
-    text-align: left;
-}
-
-label {
-    display: block;
-    margin-bottom: 0.5rem;
-    font-size: 1.2rem;
-}
-
-input,
-textarea {
     width: 100%;
-    padding: 0.75rem;
+    max-width: 600px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.inputBox {
+    position: relative;
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.inputBox input,
+.inputBox textarea {
+    width: 100%;
+    padding: 15px 20px;
+    outline: none;
+    background: transparent;
     border-radius: 5px;
-    border: 1px solid #ddd;
-    font-size: 1rem;
+    color: #fff;
+    border: 2px solid #ee8456;
+    font-size: 2em;
+    margin: 10px;
+    transition: border-color 0.4s;
 }
 
-textarea {
-    resize: none;
+.inputBox span {
+    position: absolute;
+    top: 50%;
+    /* Centramos verticalmente */
+    left: 20px;
+    transform: translateY(-50%);
+    font-size: 1.5em;
+    color: #ff7f50;
+    pointer-events: none;
+    transition: 0.3s;
+    background-color: #444;
+    padding: 0;
+    border-radius: 5px;
 }
 
-button[type="submit"] {
-    background-color: #ff9900;
-    padding: 1rem 2rem;
+/* Efecto al hacer focus o tener texto válido */
+.inputBox input:focus~span,
+.inputBox input:valid~span,
+.inputBox textarea:focus~span,
+.inputBox textarea:valid~span {
+    top: 0;
+    left: 15px;
+    transform: translateY(-50%);
+    font-size: 1.5em;
+    padding: 0 8px;
+    margin: 10px;
+    color: #ee8456;
+    border: 1px solid #ee8456;
+    background-color: #444;
+}
+
+.btn {
+    background: #444;
     color: white;
-    border-radius: 5px;
-    font-size: 1.2rem;
-    cursor: pointer;
+    padding: 10px 20px;
+    border-radius: 25px;
+    font-weight: bold;
     transition: background-color 0.3s ease;
 }
 
-button[type="submit"]:hover {
-    background-color: #cc7a00;
+.btn:hover {
+    background-color: #e05a1f;
 }
+
 
 /* FOOTER */
 footer {
@@ -404,6 +446,7 @@ footer {
 footer p {
     margin-bottom: 1rem;
     font-size: 1rem;
+    line-height: 1.5;
 }
 
 .social-icons {
@@ -414,33 +457,20 @@ footer p {
     margin: 0 0.5rem;
 }
 
-.social-icons img {
+.social-icons svg {
     width: 32px;
     height: 32px;
+    /* Puedes cambiar el color de los íconos aquí */
 }
 
-/* RESPONSIVE */
-@media (max-width: 768px) {
 
-    .productos-grid,
-    .categorias-grid,
-    .informacion-grid,
-    .blog-grid {
-        flex-direction: column;
-    }
 
-    .producto,
-    .categoria,
-    .info-item,
-    .testimonio {
-        width: 100%;
-    }
-
-}
 
 /* CARRITO */
 .carrito-overlay {
     position: fixed;
+    top: 0;
+    left: 0;
     width: 100%;
     height: 100%;
     background-color: rgba(0, 0, 0, 0.8);
@@ -448,13 +478,17 @@ footer p {
     align-items: center;
     justify-content: center;
     z-index: 1000;
-    transition: opacity 0.3s ease;
+    opacity: 0;
+    /* Inicialmente invisible */
+    visibility: hidden;
+    /* Inicialmente oculto */
+    transition: opacity 0.3s ease, visibility 0.3s ease;
 }
 
+/* Mostrar el carrito cuando se activa la clase 'mostrar' */
 .carrito-overlay.mostrar {
-    display: flex;
-    /* Mostrar el carrito cuando se activa la clase 'mostrar' */
     opacity: 1;
+    visibility: visible;
 }
 
 .carrito-contenido {
@@ -464,6 +498,8 @@ footer p {
     width: 90%;
     max-width: 500px;
     position: relative;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    /* Sombra para darle profundidad */
 }
 
 .carrito-contenido h2 {
@@ -496,6 +532,7 @@ footer p {
     background-color: #cc7a00;
 }
 
+
 #metodo-pago {
     margin-top: 1rem;
 }
@@ -526,4 +563,226 @@ button#cerrar-carrito {
     position: absolute;
     top: 1rem;
     right: 1rem;
+}
+
+.whatsapp-button {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 100;
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background-color: #25d366;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+}
+
+.whatsapp-button img {
+    width: 100%;
+    height: 80%;
+    border-radius: 50%;
+}
+
+.whatsapp-button:hover {
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.3);
+}
+
+@media (max-width: 768px) {
+    nav .nav-links {
+        gap: 1rem;
+    }
+
+    .hero-content h1 {
+        font-size: 2.5rem;
+    }
+
+    .hero-content p {
+        font-size: 1.2rem;
+    }
+
+
+    .productos-grid,
+    .categorias-grid,
+    .informacion-grid,
+    .blog-grid {
+        display: flex;
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        /* Scroll horizontal */
+        gap: 1rem;
+
+    }
+
+    .producto h3,
+    .informacion h3 {
+        font-size: 1.2rem;
+    }
+
+    .producto,
+    .categoria,
+    .info-item,
+    .testimonio {
+        flex: calc(40% - 1rem);
+        /* Dos elementos por fila */
+        margin: 1rem;
+        padding: 0.8rem;
+    }
+
+
+    .categorias h2,
+    #productos h2,
+    .informacion h2,
+    .blog h2 {
+        font-size: 2rem;
+    }
+
+    .btn-hero,
+    .btn-agregar {
+        padding: 0.75rem 1.5rem;
+        font-size: 1rem;
+    }
+
+    .contacto h2 {
+        margin-bottom: 15px;
+        font-size: 2rem;
+    }
+
+
+    .inputBox {
+        margin-bottom: 10px;
+    }
+
+    .inputBox input,
+    .inputBox textarea {
+        border: 1px solid #ee8456;
+        font-size: 1.2rem;
+        margin: 5px;
+    }
+
+    .inputBox span {
+        font-size: 0.9rem;
+    }
+
+    .inputBox input:focus~span,
+    .inputBox input:valid~span,
+    .inputBox textarea:focus~span,
+    .inputBox textarea:valid~span {
+        top: 0;
+        left: 10px;
+        font-size: 0.7em;
+        margin: 5px;
+        padding: 0 8px;
+    }
+
+}
+
+@media (max-width: 480px) {
+    nav {
+        padding: 0.5rem;
+    }
+
+    nav .logo {
+        font-size: 1.5rem;
+    }
+
+    nav .nav-links {
+        max-width: 70%;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+        gap: 0.5rem;
+    }
+
+    .hero-content h1 {
+        font-size: 2rem;
+    }
+
+    .hero-content p {
+        font-size: 1rem;
+    }
+
+    /* Colocar todos los elementos en columna y ajustarlos bien */
+    .categorias-grid,
+    .informacion-grid,
+    .blog-grid {
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
+    }
+
+    .productos-grid,
+    .categorias-grid {
+        display: flex;
+        padding: 5px;
+        margin: 5px;
+    }
+
+    .producto,
+    .categoria,
+    .info-item,
+    .testimonio {
+        width: 100%;
+        padding: 1rem;
+        margin: 0 auto;
+        box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    .producto img,
+    .categoria img,
+    .testimonio img {
+        width: 80%;
+        height: auto;
+        margin: 0 auto 1rem;
+    }
+
+    .producto h3,
+    .categoria h3,
+    .info-item h3,
+    .testimonio h3 {
+        font-size: 1.3rem;
+    }
+
+    .producto p,
+    .categoria p,
+    .info-item p,
+    .testimonio p {
+        font-size: 1rem;
+    }
+
+    .categorias h2,
+    #productos h2,
+    .informacion h2,
+    .blog h2 {
+        font-size: 1.5rem;
+    }
+
+    .btn-hero {
+        padding: 0.5rem 1rem;
+        font-size: 0.9rem;
+    }
+
+    label {
+        display: flex;
+        margin-bottom: 0.5rem;
+        font-size: 1rem;
+        margin-left: 10px;
+    }
+
+    input,
+    textarea {
+        width: 90%;
+        margin: 10px;
+    }
+
+    .whatsapp-button {
+        width: 60px;
+        height: 60px;
+    }
+
+    .whatsapp-button img {
+        height: 70%;
+    }
 }
