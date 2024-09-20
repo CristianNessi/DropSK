@@ -74,6 +74,9 @@ document.addEventListener('DOMContentLoaded', () => {
             break;
     }
 
+
+
+
     // Manejar el evento del botón de pagar
     document.getElementById('confirmar-pago')?.addEventListener('click', () => {
         comprobante.style.display = 'block';

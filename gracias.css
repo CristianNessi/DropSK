@@ -7,10 +7,8 @@ body {
     padding: 0;
     box-sizing: border-box;
     background-color: #b3b3b3;
-    /* Fondo claro para la página de agradecimiento */
     text-align: center;
     overflow: hidden;
-    /* Para asegurar que los efectos visuales no se salgan de la pantalla */
 }
 
 header {
@@ -30,7 +28,6 @@ main {
     justify-content: center;
     align-items: center;
     height: calc(100vh - 218px);
-    /* Ajusta la altura para el header */
     padding: 1rem;
     position: relative;
     z-index: 1;
@@ -39,17 +36,12 @@ main {
 /* Contenedor de animación */
 .fullscreen-transition {
     position: fixed;
-    /* Asegura que cubra toda la pantalla */
     top: 0;
     left: 0;
     width: 100vw;
-    /* Ancho completo de la ventana */
     height: 100vh;
-    /* Altura completa de la ventana */
     background-color: #ff4500;
-    /* Color inicial de fondo (exterior) */
     z-index: 0;
-    /* Detrás del contenido principal */
     clip-path: polygon(0% 50%, 50% 0%, 100% 50%, 50% 100%);
 }
 
@@ -61,14 +53,12 @@ main {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     position: relative;
     z-index: 2;
-    /* Asegura que esté encima de otros elementos */
 }
 
 #agradecimiento h2 {
     font-size: 2rem;
 }
 
-/* Botón */
 a.btn {
     background-color: #305bb1;
     color: white;
@@ -85,26 +75,18 @@ a.btn:hover {
     transform: scale(1.05);
 }
 
-/* Estilos para los fuegos artificiales */
 .fireworks,
 .confetti {
     position: fixed;
-    /* Cambiar a fixed para cubrir toda la pantalla */
     top: 0;
     left: 0;
     width: 100vw;
-    /* Asegura que el contenedor ocupe todo el ancho de la ventana */
     height: 100vh;
-    /* Asegura que el contenedor ocupe toda la altura de la ventana */
     pointer-events: none;
-    /* No interactúa con eventos de puntero */
     z-index: 0;
-    /* Asegúrate de que esté detrás del contenido principal */
     overflow: hidden;
-    /* Para que el confeti no se desborde del contenedor */
 }
 
-/* Fuegos artificiales */
 .firework {
     position: absolute;
     border-radius: 50%;
@@ -112,7 +94,6 @@ a.btn:hover {
     background-color: rgba(255, 255, 255, 0.8);
     box-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
     animation: explode 1.5s ease-out infinite;
-    /* Ajustar la duración y suavidad */
 }
 
 @keyframes explode {
@@ -132,7 +113,6 @@ a.btn:hover {
     }
 }
 
-/* Confeti */
 .confetti-piece {
     position: absolute;
     width: 10px;
@@ -154,13 +134,11 @@ a.btn:hover {
     100% {
         top: 110%;
         left: calc(50% + (random(50px) - 25px));
-        /* Movimiento horizontal aleatorio */
         transform: rotate(360deg);
         opacity: 0;
     }
 }
 
-/* Variar colores del confeti */
 .confetti-piece:nth-child(1) {
     background-color: #ff4500;
 }
@@ -183,4 +161,66 @@ a.btn:hover {
 
 .confetti-piece:nth-child(6) {
     background-color: #ff1493;
+}
+
+/* Media Queries */
+
+/* max-width: 768px */
+@media (max-width: 768px) {
+    header h1 {
+        font-size: 2rem;
+    }
+
+    #agradecimiento {
+        padding: 2rem;
+    }
+
+    #agradecimiento h2 {
+        font-size: 1.75rem;
+    }
+
+    a.btn {
+        font-size: 1.2rem;
+        padding: 0.7rem 1.2rem;
+    }
+}
+
+/* max-width: 480px */
+@media (max-width: 480px) {
+    header h1 {
+        font-size: 1.8rem;
+    }
+
+    #agradecimiento {
+        padding: 1.5rem;
+    }
+
+    #agradecimiento h2 {
+        font-size: 1.5rem;
+    }
+
+    a.btn {
+        font-size: 1.1rem;
+        padding: 0.6rem 1rem;
+    }
+}
+
+/* max-width: 380px */
+@media (max-width: 380px) {
+    header h1 {
+        font-size: 1.5rem;
+    }
+
+    #agradecimiento {
+        padding: 1rem;
+    }
+
+    #agradecimiento h2 {
+        font-size: 1.2rem;
+    }
+
+    a.btn {
+        font-size: 1rem;
+        padding: 0.5rem 0.8rem;
+    }
 }

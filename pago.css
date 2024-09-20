@@ -5,7 +5,6 @@ body {
     padding: 0;
     box-sizing: border-box;
     background-color: #f5f5f5;
-    /* Fondo claro para la página de pago */
     text-align: center;
 }
 
@@ -22,11 +21,12 @@ header h1 {
 
 section {
     padding: 2rem;
-    max-width: 800px;
-    margin: 0 auto;
+    border: 5px solid rgb(0, 0, 0);
+    max-width: 500px;
+    margin: 10px auto;
     background-color: white;
     border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    box-shadow: 8px 15px 14px rgba(43, 41, 41, 0.681);
 }
 
 #formulario-pago {
@@ -147,4 +147,82 @@ input[type="file"]::-webkit-file-upload-button:hover {
 
 .archivo-boton:hover {
     background-color: #e03e00;
+}
+
+@media (max-width: 768px) {
+    section {
+        padding: 1.5rem;
+        max-width: 600px;
+    }
+
+    form button,
+    a.btn,
+    button.btn {
+        padding: 0.7rem 1.2rem;
+        font-size: 0.95rem;
+    }
+
+    form input {
+        padding: 0.6rem;
+    }
+
+    header h1 {
+        font-size: 1.5rem;
+    }
+
+    #comprobante h2 {
+        font-size: 1.2rem;
+    }
+}
+
+@media (max-width: 480px) {
+    section {
+        padding: 1rem;
+        max-width: 400px;
+    }
+
+    form button,
+    a.btn,
+    button.btn {
+        padding: 0.6rem 1rem;
+        font-size: 0.9rem;
+    }
+
+    form input {
+        padding: 0.5rem;
+    }
+
+    header h1 {
+        font-size: 1.3rem;
+    }
+
+    #comprobante h2 {
+        font-size: 1.1rem;
+    }
+}
+
+@media (max-width: 380px) {
+    section {
+        padding: 0.8rem;
+        max-width: 320px;
+    }
+
+    form button,
+    a.btn,
+    button.btn {
+        padding: 0.5rem 0.8rem;
+        font-size: 0.85rem;
+    }
+
+    form input {
+        padding: 0.4rem;
+    }
+
+    header h1 {
+        font-size: 1.1rem;
+    }
+
+    #comprobante h2 {
+        font-size: 1rem;
+    }
 }

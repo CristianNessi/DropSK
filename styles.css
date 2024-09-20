@@ -100,6 +100,8 @@ nav .nav-links a:hover {
     color: white;
 }
 
+
+
 .hero-content h1 {
     font-size: 4rem;
     margin-bottom: 1rem;
@@ -222,28 +224,37 @@ nav .nav-links a:hover {
     transition: transform 0.3s;
 }
 
+/* Efecto hover para desktop */
 .producto:hover {
     transform: translateY(-10px);
 }
 
+/* Ajustes de la imagen */
 .producto img {
     max-width: 100%;
     height: auto;
     border-bottom: 1px solid #ddd;
     margin-bottom: 1rem;
+    flex: 1;
 }
 
+/* Título del producto */
 .producto h3 {
+    flex: 1;
     font-size: 1.5rem;
     margin-bottom: 1rem;
 }
 
+/* Descripción del producto */
 .producto p {
+    flex-shrink: 0;
     font-size: 1.2rem;
     margin-bottom: 1.5rem;
 }
 
+/* Botón de agregar */
 .btn-agregar {
+    flex-shrink: 0;
     background-color: #ff9900;
     color: white;
     padding: 0.75rem 1.5rem;
@@ -257,6 +268,7 @@ nav .nav-links a:hover {
     background-color: #cc7a00;
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
 }
+
 
 /* SECCIÓN DE CATEGORÍAS Y PRODUCTOS IMAGEN DE FONDO OSCURA */
 #categorias,
@@ -311,6 +323,8 @@ nav .nav-links a:hover {
     font-size: 1.8rem;
     margin-bottom: 1rem;
 }
+
+
 
 /* BLOG / TESTIMONIOS */
 .blog {
@@ -421,16 +435,19 @@ nav .nav-links a:hover {
     background-color: #444;
 }
 
-.btn {
-    background: #444;
-    color: white;
-    padding: 10px 20px;
-    border-radius: 25px;
-    font-weight: bold;
+.bton {
+    width: 100%;
+    background-color: #ff9900;
+    color: #000000;
+    border: none;
+    padding: 0.5rem;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
     transition: background-color 0.3s ease;
 }
 
-.btn:hover {
+.bton:hover {
     background-color: #e05a1f;
 }
 
@@ -635,17 +652,16 @@ button#cerrar-carrito {
         font-size: 1.2rem;
     }
 
-
+    /* Flex en productos y otras cuadrículas */
     .productos-grid,
     .categorias-grid,
     .informacion-grid,
     .blog-grid {
         display: flex;
-        flex-wrap: nowrap;
-        overflow-x: auto;
-        /* Scroll horizontal */
+        flex-wrap: wrap;
+        /* Mantener los elementos en varias filas */
+        justify-content: space-around;
         gap: 1rem;
-
     }
 
     .producto h3,
@@ -653,17 +669,18 @@ button#cerrar-carrito {
         font-size: 1.2rem;
     }
 
+    /* Ajustar el tamaño de los productos y elementos de la cuadrícula */
     .producto,
     .categoria,
     .info-item,
     .testimonio {
-        flex: calc(40% - 1rem);
-        /* Dos elementos por fila */
-        margin: 1rem;
+        flex: calc(50% - 2rem);
+        /* Ajustar para que se alineen dos por fila */
+        margin: 1rem 0;
         padding: 0.8rem;
     }
 
-
+    /* Títulos más grandes para secciones */
     .categorias h2,
     #productos h2,
     .informacion h2,
@@ -671,17 +688,18 @@ button#cerrar-carrito {
         font-size: 2rem;
     }
 
+    /* Botones ajustados */
     .btn-hero,
     .btn-agregar {
         padding: 0.75rem 1.5rem;
         font-size: 1rem;
     }
 
+    /* Ajustes de la sección de contacto */
     .contacto h2 {
         margin-bottom: 15px;
         font-size: 2rem;
     }
-
 
     .inputBox {
         margin-bottom: 10px;
@@ -708,8 +726,8 @@ button#cerrar-carrito {
         margin: 5px;
         padding: 0 8px;
     }
-
 }
+
 
 @media (max-width: 480px) {
     nav {
@@ -736,7 +754,7 @@ button#cerrar-carrito {
         font-size: 1rem;
     }
 
-    /* Colocar todos los elementos en columna y ajustarlos bien */
+    /* Mantener flex-direction en columna */
     .categorias-grid,
     .informacion-grid,
     .blog-grid {
@@ -745,27 +763,30 @@ button#cerrar-carrito {
         gap: 1.5rem;
     }
 
-    .productos-grid,
-    .categorias-grid {
-        display: flex;
-        padding: 5px;
-        margin: 5px;
+    /* Eliminar redefinición innecesaria de productos-grid */
+    .productos-grid {
+        gap: 1rem;
+        justify-content: center;
     }
 
+    /* Mantener productos y otros elementos alineados en columna con 100% de ancho */
     .producto,
     .categoria,
     .info-item,
     .testimonio {
         width: 100%;
+        /* Ya está bien que ocupen el 100% en móvil */
         padding: 1rem;
         margin: 0 auto;
         box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
     }
 
+    /* Ajuste de imagen para ser más pequeña en móviles */
     .producto img,
     .categoria img,
     .testimonio img {
         width: 80%;
+        /* Mantener el tamaño relativo de la imagen */
         height: auto;
         margin: 0 auto 1rem;
     }
@@ -791,7 +812,7 @@ button#cerrar-carrito {
         font-size: 1.5rem;
     }
 
-    .btn-hero {
+    .btn-hero .btn-agregar {
         padding: 0.5rem 1rem;
         font-size: 0.9rem;
     }
@@ -816,5 +837,119 @@ button#cerrar-carrito {
 
     .whatsapp-button img {
         height: 70%;
+    }
+}
+
+@media (max-width: 380px) {
+    nav {
+        padding: 0.5rem;
+    }
+
+    nav .logo {
+        font-size: 1.2rem;
+    }
+
+    nav .nav-links {
+        max-width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 0.5rem;
+    }
+
+    .hero-content h1 {
+        font-size: 1.8rem;
+        text-align: center;
+    }
+
+    .hero-content p {
+        font-size: 0.9rem;
+        text-align: center;
+    }
+
+    /* Ajuste de grid para pantallas pequeñas */
+    .productos-grid,
+    .categorias-grid,
+    .informacion-grid,
+    .blog-grid {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    /* Ajuste de cada producto para que ocupe el 100% */
+    .producto,
+    .categoria,
+    .info-item,
+    .testimonio {
+        width: 100%;
+        /* Ocupar todo el ancho de la pantalla */
+        padding: 0.8rem;
+        margin: 0 auto;
+        box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    .producto h3,
+    .informacion h3 {
+        font-size: 1.1rem;
+    }
+
+    .producto p,
+    .categoria p,
+    .info-item p,
+    .testimonio p {
+        font-size: 0.9rem;
+    }
+
+    /* Ajustar imágenes al 70% del contenedor */
+    .producto img,
+    .categoria img,
+    .testimonio img {
+        width: 70%;
+        height: auto;
+        margin: 0 auto 1rem;
+    }
+
+    /* Ajuste de botones para pantallas pequeñas */
+    .btn-hero,
+    .btn-agregar {
+        padding: 0.5rem 1rem;
+        font-size: 0.8rem;
+    }
+
+    .categorias h2,
+    #productos h2,
+    .informacion h2,
+    .blog h2 {
+        font-size: 1.3rem;
+        text-align: center;
+    }
+
+    /* Ajuste de la sección de contacto */
+    .contacto h2 {
+        margin-bottom: 10px;
+        font-size: 1.5rem;
+        text-align: center;
+    }
+
+    .inputBox {
+        margin-bottom: 8px;
+    }
+
+    .inputBox input,
+    .inputBox textarea {
+        width: 95%;
+        /* Ajustar para que se mantengan dentro de la pantalla */
+        font-size: 1rem;
+        margin: 5px;
+    }
+
+    .whatsapp-button {
+        width: 50px;
+        height: 50px;
+    }
+
+    .whatsapp-button img {
+        height: 60%;
     }
 }
